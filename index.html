@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>▶️ Video Player - moekyawaung-microsoft</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="video-app">
+        <!-- Video Library Sidebar -->
+        <aside class="video-sidebar">
+            <div class="sidebar-header">
+                <h3>📺 Video Library</h3>
+                <button onclick="toggleUpload()">➕ Upload</button>
+            </div>
+            
+            <div class="video-list" id="videoList">
+                <!-- Videos load here -->
+            </div>
+        </aside>
+
+        <!-- Main Player -->
+        <main class="player-container">
+            <!-- Video Player -->
+            <div class="video-wrapper">
+                <video id="mainVideo" controls preload="metadata">
+                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+                    Your browser doesn't support video.
+                </video>
+                
+                <!-- Custom Controls Overlay -->
+                <div class="custom-controls" id="customControls">
+                    <div class="top-controls">
+                        <button onclick="togglePlay()" id="playToggle">
+                            <i class="fas fa-play" id="playIcon"></i>
+                        </button>
+                        <div class="volume-control">
+                            <i class="fas fa-volume-up" id="volumeIcon"></i>
+                            <input type="range" id="volumeSlider" min="0" max="100" value="70">
+                        </div>
+                    </div>
+                    
+                    <div class="progress-container">
+                        <span id="currentTime">0:00</span>
+                        <div class="progress-bar" id="progressBar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <span id="duration">0:00</span>
+                    </div>
+                    
+                    <div class="bottom-controls">
+                        <div class="left-controls">
+                            <button onclick="previousVideo()"><i class="fas fa-step-backward"></i></button>
+                            <button onclick="togglePlay()" id="centerPlay"><i class="fas fa-play"></i></button>
+                            <button onclick="nextVideo()"><i class="fas fa-step-forward"></i></button>
+                        </div>
+                        
+                        <div class="right-controls">
+                            <button onclick="toggleFullscreen()"><i class="fas fa-expand"></i></button>
+                            <button onclick="toggleSubtitles()"><i class="fas fa-closed-captioning" id="subtitleIcon"></i></button>
+                            <button onclick="togglePictureInPicture()"><i class="fas fa-external-link-alt"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Info -->
+            <div class="video-info">
+                <div class="video-title" id="videoTitle">Big Buck Bunny - Sample Video</div>
+                <div class="video-meta">
+                    <span id="views">1,234 views</span> •
+                    <span id="uploadDate">2 days ago</span>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
